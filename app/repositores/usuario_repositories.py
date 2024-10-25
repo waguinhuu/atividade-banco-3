@@ -12,3 +12,8 @@ class UsuarioRepository:
     
     def pesquisar_usuario_por_email(self, email: str):
         return self.session.query(Usuario).filter_by(email = email).first()
+    
+    def deletar_usuario(self, usuario: Usuario):
+        self.session.delete(usuario)
+        self.session.commit()
+        self.session.refresh()
