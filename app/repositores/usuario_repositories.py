@@ -9,3 +9,6 @@ class UsuarioRepository:
         self.session.add(usuario)
         self.session.commit()
         self.session.refresh()
+    
+    def pesquisar_usuario_por_email(self, email: str):
+        return self.session.query(Usuario).filter_by(email = email).first()
