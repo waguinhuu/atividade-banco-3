@@ -11,3 +11,12 @@ class Usuario():
     nome = Column(String(250))
     email = Column(String(250), unique=True)
     senha = Column(String(250))
+    
+     # Definindo atributos da classe.
+    def __init__(self, nome: str, email: str, senha: str):
+        self.nome = nome
+        self.email = email
+        self.senha = senha
+
+# Criando tabela no banco de dados.
+Base.metadata.create_all(bind=db)
